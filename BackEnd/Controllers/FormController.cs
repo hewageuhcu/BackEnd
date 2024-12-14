@@ -7,4 +7,5 @@ public class FormController : ControllerBase
 {
     [HttpGet]
     public string Get() => "Hello from API";
+
 }
