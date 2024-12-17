@@ -9,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddScoped<IFormRepository, FormRepository>();  
+// Register the service
+builder.Services.AddScoped<IFormService, FormService>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -28,3 +32,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
